@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: $subtle-black;
+  font-size: $fontsize-md;
+  font-family: $font-interface;
+  line-height: $lineheight-md;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+
+  &.overflow-locked {
+    overflow: hidden;
+  }
+}
+
+img {
+  border: none;
+}
+
+h1 {
+  font-size: $fontsize-xl;
+}
+
+h2 {
+  font-size: $fontsize-lg;
+}

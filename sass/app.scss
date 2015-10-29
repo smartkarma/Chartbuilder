@@ -1,20 +1,7 @@
-/**
- * Main CSS for ChartBuilder
- */
+// Chartbuilder variables
+@import "variables";
 
-
-/**
- * General
- */
-body {
-	min-width: 800px;
-	width: 100%;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	line-height: 1.1em;
-	font-size: 0.75em;
-	color: #666;
-}
+@import "base";
 
 cite {
 	font-size: .85em;
@@ -22,25 +9,6 @@ cite {
 	margin-bottom: 1em;
 	line-height: 1em;
 	display: block;
-}
-
-h1 {
-	font-size: 2em;
-	line-height: 1.5em;
-}
-
-h2 {
-	font-size: 1.5em;
-	line-height: 1.5em;
-	margin-top: 0;
-}
-
-h3 {
-	font-size: 1.25em;
-}
-
-h4 {
-	font-size: 1em;
 }
 
 table {
@@ -148,6 +116,7 @@ table {
 	float: left;
 	background-color: #f6f6f6;
 }
+
 #rightColumn .cbInner .optionBlock h2 {
 	margin-left: 5px;
 	margin-right: 5px;
@@ -165,7 +134,6 @@ table {
 	#rightColumn .cbInner .optionBlock {
 		width: 46%;
 	}
-
 }
 
 @media (min-width: 1250px) {
@@ -173,12 +141,9 @@ table {
 		width: 29%;
 	}
 
-
-#rightColumn .cbInner h2 {
-	clear: both;
-}
-
-
+	#rightColumn .cbInner h2 {
+		clear: both;
+	}
 }
 
 input,
@@ -186,7 +151,7 @@ textarea,
 select {
 	display: block;
 	margin-bottom: 1em;
-	font-family: 'PTSerif';
+	font-family: $font-interface;
 	color: #666666;
 	border: 1px solid #ccc;
   -moz-box-sizing: border-box;
@@ -209,7 +174,6 @@ select {
 }
 
 label {
-	font-family: Arial, "MS Trebuchet", sans-serif;
 	color: #666666;
 	display: block;
 	font-size: 1em;
@@ -334,7 +298,6 @@ textarea {
 }
 
 .updateButton p {
-	font-family: Arial, "MS Trebuchet", sans-serif;
 	padding: 5px;
 	background-color: #999;
 	color: #ffffff;
