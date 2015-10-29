@@ -98,7 +98,7 @@ Gneiss.defaultGneissChartConfig = {
 		}
 	],
 	sourceline: "",
-	creditline: "Made with Chartbuilder"
+	creditline: "Smartkarma Chartbuilder 1.0"
 };
 
 Gneiss.dateParsers = {
