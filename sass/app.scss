@@ -325,3 +325,18 @@ div.colorPicker-swatch {
 div.colorPicker_hexWrap {
 	display: none;
 }
+
+.instructions {
+	width: 600px;
+	height: 300px;
+	margin-top: $content-padding-lg;
+	padding: 0 $content-padding;
+	overflow: scroll;
+	border: 1px solid $border-shade;
+	font-size: $fontsize-md;
+	line-height: $lineheight-md;
+
+	p {
+		margin: 0;
+	}
+}

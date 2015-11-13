@@ -283,4 +283,16 @@ div.colorPicker-swatch {
 div.colorPicker_hexWrap {
   display: none; }
 
+.instructions {
+  width: 600px;
+  height: 300px;
+  margin-top: 25px;
+  padding: 0 15px;
+  overflow: scroll;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  line-height: 1.46667; }
+  .instructions p {
+    margin: 0; }
+
 /*# sourceMappingURL=chartbuilder.css.map */
