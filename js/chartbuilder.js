@@ -337,7 +337,6 @@ ChartBuilder = {
 		$("#downloadSVGLink").attr("href","data:text/svg,"+ svgContent.source[0])
 			.attr("download",function(){ return filename + "_chartbuilder.svg";});
 
-			var icon = this.setFavicon();
 			//this.storeLocalChart(filename);
 
 		if(!(/Apple/).test(navigator.vendor)) {
@@ -413,23 +412,6 @@ ChartBuilder = {
 		var source = (new XMLSerializer()).serializeToString(svg).replace('</style>', '<![CDATA[' + styles + ']]></style>');
 
 		return {svg: svg, source: [doctype + source]};
-	},
-	setFavicon: function() {
-		//set favicon to image of chart
-		var favicanvas = document.getElementById("favicanvas");
-		favicanvas.width = 64;
-		favicanvas.height = 64;
-		
-		var faviCanvasContext = favicanvas.getContext("2d");
-		faviCanvasContext.translate(favicanvas.width / 2, favicanvas.height / 2);
-		
-		var svg = $.trim(document.getElementById("chartContainer").innerHTML);
-		faviCanvasContext.drawSvg(svg,-16,-8,32,32);
-		
-		var icon = favicanvas.toDataURL("png");
-		$("#favicon").attr("href",icon);
-		
-		return icon;
 	},
 	redraw: function() {
 		$(".seriesItemGroup").detach();
