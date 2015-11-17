@@ -329,8 +329,8 @@ ChartBuilder = {
 		var svgContent = this.createSVGContent(document.getElementById("chart"));
 
 		svgContent.source[0] = svgContent.source[0]
-			.split('width="100%"').join('width="'+canvas.width+'"')
-			.split('height="100%"').join('height="'+canvas.height+'"');
+			.split('width="100%"').join('width="'+$("#chartContainer").width()+'"')
+			.split('height="100%"').join('height="'+$("#chartContainer").height()+'"');
 
 		svgContent.source[0] = ChartBuilder.cleanSVGString(svgContent.source[0])
 
