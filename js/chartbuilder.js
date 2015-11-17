@@ -325,18 +325,6 @@ ChartBuilder = {
 			.attr("download",function(){ return filename + "_chartbuilder.png";
 			});
 
-
-		var svgContent = this.createSVGContent(document.getElementById("chart"));
-
-		svgContent.source[0] = svgContent.source[0]
-			.split('width="100%"').join('width="'+$("#chartContainer").width()+'"')
-			.split('height="100%"').join('height="'+$("#chartContainer").height()+'"');
-
-		svgContent.source[0] = ChartBuilder.cleanSVGString(svgContent.source[0])
-
-		$("#downloadSVGLink").attr("href","data:text/svg,"+ svgContent.source[0])
-			.attr("download",function(){ return filename + "_chartbuilder.svg";});
-
 			//this.storeLocalChart(filename);
 
 		if(!(/Apple/).test(navigator.vendor)) {
@@ -353,65 +341,8 @@ ChartBuilder = {
 			var blob = new Blob([ui8a], { type: 'image/png' });
 			var url = URL.createObjectURL(blob);
 			link.href = url;
-
-			link = document.getElementById('downloadSVGLink');
-			blob = new Blob(svgContent.source, { type: '"text\/xml"' });
-			url = URL.createObjectURL(blob);
-			link.href = url;
 		}
 
-	},
-	cleanSVGString: function(s) {
-		//use this funciton to say replace a webfont's name with a desktop font's name
-		return s
-	},
-	createSVGContent: function(svg) {
-		/*
-			Copyright (c) 2013 The New York Times
-
-			Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-			The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-			SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-		*/
-
-		//via https://github.com/NYTimes/svg-crowbar
-
-		var prefix = {
-			xmlns: "http://www.w3.org/2000/xmlns/",
-			xlink: "http://www.w3.org/1999/xlink",
-			svg: "http://www.w3.org/2000/svg"
-		};
-
-		var doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
-
-
-		svg.setAttribute("version", "1.1");
-
-		var defsEl = document.createElement("defs");
-		svg.insertBefore(defsEl, svg.firstChild); //TODO   .insert("defs", ":first-child")
-
-		var styleEl = document.createElement("style");
-		defsEl.appendChild(styleEl);
-		styleEl.setAttribute("type", "text/css");
-
-
-		// removing attributes so they aren't doubled up
-		svg.removeAttribute("xmlns");
-		svg.removeAttribute("xlink");
-
-		// These are needed for the svg
-		if (!svg.hasAttributeNS(prefix.xmlns, "xmlns")) {
-			svg.setAttributeNS(prefix.xmlns, "xmlns", prefix.svg);
-		}
-
-		if (!svg.hasAttributeNS(prefix.xmlns, "xmlns:xlink")) {
-			svg.setAttributeNS(prefix.xmlns, "xmlns:xlink", prefix.xlink);
-		}
-
-		var source = (new XMLSerializer()).serializeToString(svg).replace('</style>', '<![CDATA[' + styles + ']]></style>');
-
-		return {svg: svg, source: [doctype + source]};
 	},
 	redraw: function() {
 		$(".seriesItemGroup").detach();
