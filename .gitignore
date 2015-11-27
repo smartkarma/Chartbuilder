@@ -1,7 +1,7 @@
 .DS_Store
 .sass-cache
-css/smartkarma.css
-css/smartkarma.css.map
+css/chartbuilder.*.css
+css/chartbuilder.*.css.map
 config/quartz_config.js
 config/defenseOne_config.js
 d1.html
